@@ -1,0 +1,85 @@
+{
+  "name": "next-js-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eslintrc.js",
+  "homepage": "https://vakhula.github.io/next-js-starter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vakhula/next-js-starter.git"
+  },
+  "scripts": {
+    "clear": "rm -rf .next out",
+    "dev": "NODE_ENV=development next src",
+    "build": "NODE_ENV=development next build src",
+    "start": "NODE_ENV=development next start src",
+    "export": "yarn clear && NODE_ENV=production next build src && NODE_ENV=production next export src && mv ./src/out out",
+    "lint": "eslint ./src --ext .js",
+    "stylelint": "stylelint --cache './**/*.less'",
+    "analyze": "NODE_ENV=production BUNDLE_ANALYZE=both yarn build",
+    "size-analyze": "cross-env ANALYZE=1 next build src",
+    "bundle-size": "yarn export && bundlesize",
+    "deploy": "yarn export && gh-pages -d out -t",
+    "test": "yarn lint && yarn stylelint && yarn bundle-size"
+  },
+  "author": "",
+  "license": "ISC",
+  "browserslist": [
+    "last 3 version",
+    "> 1%"
+  ],
+  "bundlesize": [
+    {
+      "path": "out/**/*.html",
+      "maxSize": "10 kB"
+    },
+    {
+      "path": "out/**/*.css",
+      "maxSize": "50 kB"
+    },
+    {
+      "path": "out/**/*.js",
+      "maxSize": "300 kB"
+    }
+  ],
+  "dependencies": {
+    "next": "^9.1.1",
+    "prismic-javascript": "^2.1.1",
+    "prismic-reactjs": "^1.1.1",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  },
+  "devDependencies": {
+    "@zeit/next-bundle-analyzer": "~0.1.2",
+    "@zeit/next-css": "~1.0.1",
+    "@zeit/next-less": "~1.0.1",
+    "autoprefixer": "~9.6.5",
+    "babel-core": "~6.26.3",
+    "babel-eslint": "~10.0.3",
+    "babel-plugin-module-resolver": "~3.2.0",
+    "babel-plugin-wrap-in-js": "~1.1.1",
+    "babel-preset-env": "~1.7.0",
+    "babel-preset-react": "~6.24.1",
+    "bundlesize": "~0.18.0",
+    "cssnano": "~4.1.10",
+    "eslint": "~6.5.1",
+    "eslint-config-google": "~0.14.0",
+    "eslint-plugin-import": "~2.18.2",
+    "eslint-plugin-react": "~7.16.0",
+    "gh-pages": "~2.1.1",
+    "image-trace-loader": "~0.1.0",
+    "imagemin-gifsicle": "~6.0.1",
+    "imagemin-mozjpeg": "~8.0.0",
+    "imagemin-optipng": "~7.1.0",
+    "less": "^2.7.3",
+    "less-vars-to-js": "~1.3.0",
+    "next-compose-plugins": "~2.2.0",
+    "next-images": "~1.2.0",
+    "next-optimized-images": "~2.5.3",
+    "postcss-css-variables": "~0.13.0",
+    "postcss-easy-import": "~3.0.0",
+    "stylelint": "~11.1.1",
+    "stylelint-config-standard": "~19.0.0",
+    "webpack-bundle-size-analyzer": "~3.1.0"
+  }
+}

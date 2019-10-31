@@ -1,0 +1,12 @@
+.DS_Store
+.next
+.vscode
+out
+node_modules
+.stylelintcache
+bundles
+.env
+.stylelintcache
+yarn-error.log
+yarn-error.log
+yarn.lock

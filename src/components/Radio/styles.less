@@ -1,0 +1,108 @@
+.flat {
+  display: inline-block;
+
+  input[type="radio"].radio {
+    display: none;
+
+    & + label {
+      display: inline-block;
+      line-height: 20px;
+      height: 20px;
+      position: relative;
+      padding-left: 40px;
+      cursor: pointer;
+      box-sizing: border-box;
+      transition: all 0.2s ease-in-out;
+      margin-right: 25px;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        box-sizing: border-box;
+        border-radius: 100%;
+        transition: all 0.2s ease-in-out;
+      }
+
+      &::before {
+        height: 20px;
+        width: 20px;
+        border: 2px solid #444;
+      }
+
+      &::after {
+        height: 8px;
+        width: 8px;
+        background-color: transparent;
+        border-width: 4px;
+        border-style: solid;
+        border-color: transparent;
+        margin-top: 6px;
+        margin-left: 6px;
+        filter: progid:dximagetransform.microsoft.alpha(Opacity=0);
+        opacity: 0;
+        transition: border-color 200ms linear, border-width 200ms linear;
+      }
+    }
+
+    &:checked + label {
+      &::after {
+        filter: progid:dximagetransform.microsoft.alpha(enabled=false);
+        opacity: 1;
+        border-color: @blue;
+        transition: border-color 200ms linear, border-width 200ms linear;
+      }
+
+      &::before {
+        border-color: @blue;
+      }
+    }
+
+    &:disabled + label {
+      filter: progid:dximagetransform.microsoft.alpha(Opacity=50);
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &.small + label {
+      line-height: 16px;
+      height: 16px;
+      padding-left: 20.8px;
+
+      &::before {
+        height: 16px;
+        width: 16px;
+      }
+
+      &::after {
+        height: 8px;
+        width: 8px;
+        margin-left: 4px;
+        margin-top: 4px;
+        border-width: 4px;
+      }
+    }
+
+    &.large + label {
+      line-height: 24px;
+      height: 24px;
+      padding-left: 31.2px;
+
+      &::before {
+        height: 24px;
+        width: 24px;
+      }
+
+      &::after {
+        height: 12px;
+        width: 12px;
+        margin-left: 6px;
+        margin-top: 6px;
+        border-width: 6px;
+      }
+    }
+  }
+}
