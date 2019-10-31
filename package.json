@@ -3,20 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "main": ".eslintrc.js",
-  "homepage": "https://vakhula.github.io/next-js-starter",
+  "homepage": "https://m7dev.github.io/next-js-starter",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vakhula/next-js-starter.git"
+    "url": "https://github.com/m7dev/next-js-starter.git"
   },
   "scripts": {
     "clear": "rm -rf .next out",
-    "dev": "NODE_ENV=development next src",
-    "build": "NODE_ENV=development next build src",
-    "start": "NODE_ENV=development next start src",
-    "export": "yarn clear && NODE_ENV=production next build src && NODE_ENV=production next export src && mv ./src/out out",
+    "dev": "next src",
+    "build": "next build src",
+    "start": "next start src",
+    "export": "yarn clear && next build src && next export src && mv ./src/out out",
     "lint": "eslint ./src --ext .js",
-    "stylelint": "stylelint --cache './**/*.less'",
-    "analyze": "NODE_ENV=production BUNDLE_ANALYZE=both yarn build",
+    "stylelint": "stylelint --cache './**/*.lessya'",
+    "analyze": "BUNDLE_ANALYZE=both yarn build",
     "size-analyze": "cross-env ANALYZE=1 next build src",
     "bundle-size": "yarn export && bundlesize",
     "deploy": "yarn export && gh-pages -d out -t",
